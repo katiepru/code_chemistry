@@ -1,5 +1,9 @@
 CodeChemistry::Application.routes.draw do
 
+  get "users/home"
+
+  get "users/profile"
+
   root :to => 'sessions#new'
 
   get   '/login', :to => 'sessions#new', :as => :login
