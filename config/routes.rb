@@ -1,5 +1,7 @@
 CodeChemistry::Application.routes.draw do
 
+  root :to => 'sessions#new'
+
   get   '/login', :to => 'sessions#new', :as => :login
 
   get '/logout', :to => 'sessions#destroy'
