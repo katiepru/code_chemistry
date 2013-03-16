@@ -1,5 +1,9 @@
 CodeChemistry::Application.routes.draw do
 
+  get "user/home"
+
+  get "user/profile"
+
   get "users/home"
 
   get "users/profile"
