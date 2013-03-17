@@ -1,6 +1,6 @@
 class ProjectController < ApplicationController
   def create
-    @project = Project.new :name => params[:name]
+    @project = Project.new :name => params[:name], :url => params[:url]
     @project.save
 	redirect_to '/project/show/'+@project.name
   end

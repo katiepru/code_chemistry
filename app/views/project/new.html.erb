@@ -3,13 +3,11 @@
   <body>
 	  <div class="row">
 		  <div class="well">
-			  <%= form_tag("/project/create", :method => "post") do %>
+			  <%= form_tag("/project/create", :method => "get") do %>
 				  <%= label_tag(:name, "Enter Name:") %>
-				  <%= text_field_tag(:name) %>
-				  <%= submit_tag("Submit") %>
-				  <br/>
+				  <%= text_field_tag :name, params[:name] %>
 				  <%= label_tag(:url, "Enter GitHub URL:") %>
-				  <%= text_field_tag(:url) %>
+				  <%= text_field_tag :url, params[:url] %>
 				  <%= submit_tag("Submit") %>
 			  <% end %>
 		  </div>

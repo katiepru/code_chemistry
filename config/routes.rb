@@ -7,9 +7,9 @@ CodeChemistry::Application.routes.draw do
 
   get "project/show/:name" => "project#show"
 
-  get "project/new" => "project#new"
+  get "project/new"  => "project#new"
 
-  post "project/create" => "project#create"
+  get "project/create"  => "project#create"
 
   match '/user/edit', :to => "user#edit"
 
