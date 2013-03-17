@@ -1,5 +1,8 @@
 CodeChemistry::Application.routes.draw do
+  match '/user/edit', :to => "user#edit"
+
   resources :user
+
   get "user/home"
 
   get "user/profile"
@@ -9,7 +12,7 @@ CodeChemistry::Application.routes.draw do
   get   '/login', :to => 'sessions#new', :as => :login
 
   get '/logout', :to => 'sessions#destroy'
-  
+
   match '/auth/:provider/callback', :to => 'sessions#create'
 
   match '/auth/failure', :to => 'sessions#failure'
