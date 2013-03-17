@@ -16,7 +16,7 @@
       <table>
         <% @octo_langs.each do |lang| %>
           <tr>
-            <td><%= lang[0] %>:</td><td><%= lang[1] %></td>
+            <td><%= lang[0] %>:</td><td><%= lang_ratio(@octo_langs, lang[0]) %></td>
           </tr>
         <% end %>
         <tr>
