@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   attr_accessible :auth_token, :email, :username
 
   # Coding style attributes
-  attr_accessible :tabs, :spaces
+  attr_accessible :indent
   validates :username, :email, :presence => true
 end
