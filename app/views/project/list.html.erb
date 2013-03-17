@@ -1,2 +1,18 @@
-<h1>Project#list</h1>
-<p>Find me in app/views/project/list.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+	  <title><%= yield(:title) %></title>
+	</head>
+	<body>
+	<%= @projects.each do |f| %>
+	  <div class=row">
+		  <div class="span5 offset2 colorful">
+			  <h2><%= f.name %></h2>
+			</div>
+			<div  class="span2 colorful">
+			  <%= button_to "View", "/project/show/"+f.name, :class => "btn", :mathod => :get %>
+			</div>
+		</div>
+	<% end %>
+	</body>
+</html>
