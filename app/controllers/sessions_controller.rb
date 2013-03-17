@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     else
       user = User.new :username => auth_hash["info"]["nickname"], :email => auth_hash["info"]["email"], :auth_token => auth_hash["credentials"]["token"]
       user.save
+    session[:user_id] = user.id
 	  redirect_to "user/profile"
     end
   end
