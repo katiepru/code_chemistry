@@ -1,3 +1,6 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
-<%= link_to "Connect With Github", "/auth/github" %>
+<div class="row">
+  <div class="span4 offset7" style="text-align:center; background-color: #f9f9f9">
+    <h2>Log In with Github</h2>
+    <%= button_to "Log In", "/auth/github", :class => "btn", :method => :get %>
+  </div>
+</div>
