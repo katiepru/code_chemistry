@@ -4,13 +4,10 @@
 	  <title><%= yield(:title) %></title>
 	</head>
 	<body>
-	<%= @projects.each do |f| %>
+	<% @projects.each do |f| %>
 	  <div class=row">
-		  <div class="span5 offset2 colorful">
-			  <h2><%= f.name %></h2>
-			</div>
-			<div  class="span2 colorful">
-			  <%= button_to "View", "/project/show/"+f.name, :class => "btn", :mathod => :get %>
+		  <div class="span5 offset4 well">
+        <a href="project/view/<%= f.name %>"><h2><%= f.name %></h2></a>
 			</div>
 		</div>
 	<% end %>
