@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317053524) do
+ActiveRecord::Schema.define(:version => 20130317053806) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -36,5 +36,13 @@ ActiveRecord::Schema.define(:version => 20130317053524) do
     t.datetime "updated_at", :null => false
     t.integer  "indent"
   end
+
+  create_table "users_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+  end
+
+  add_index "users_projects", ["project_id", "user_id"], :name => "index_users_projects_on_project_id_and_user_id"
+  add_index "users_projects", ["user_id", "project_id"], :name => "index_users_projects_on_user_id_and_project_id"
 
 end

@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   attr_accessible :indent
 
   validates :username, :email, :presence => true
+
+  has_and_belongs_to_many :project
 end
