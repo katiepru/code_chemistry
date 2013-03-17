@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
   def create
     auth_hash = request.env['omniauth.auth']
-	User.delete_all
     @user = User.find_by_username(auth_hash["info"]["nickname"])
     if @user
       session[:user_id] = @user.id
