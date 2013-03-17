@@ -11,7 +11,6 @@ class UserController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-    redirect_to 'session/destroy' unless @user
   end
 
   def edit

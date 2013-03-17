@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+  </head>
+  <body>
+    <h1>Edit Your Profile here:</h1>
+
+    <%= form_tag :action => 'update' :method => 'post' %>
+      Something: <%= text_field 'item', 'something' %>
+    <%= end_form_tag %>
+
+  </body>
+</html>
