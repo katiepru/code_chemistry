@@ -5,30 +5,47 @@
   </head>
   <body>
     <div class="row">
-	  <div class="span5 offset2" style="padding-left:30px;">
-      <h2><%= @project_owner.username %>/<%= @project.name %></h2>
-      <p><%= @octo_repo['description'] || "No description found." %></p>
-	  </div>
-	</div>
-	<div class=row">
-	  <div class="span5 offset2 well">
-	    <h2>Code info</h2>
-      <table>
-        <% @octo_langs.each do |lang| %>
-          <tr>
-            <td><%= lang[0] %>:</td><td><%= lang[1] %></td>
-          </tr>
-        <% end %>
-        <tr>
-          <td>Tabs Used: </td><td><%= detect_tabs_style(@project_owner.username, @project.name) %></td>
-      </table>
-    </div>
-	  <div class="span5 offset1 well">
-	    <h2>Collaborators</h2>
-		<% Octokit.collaborators(@project_owner.username+"/"+@project.name).each do |user| %>
-		  <p><%= link_to(user['login'], "https://github.com/"+user['login']) %></p>
-		<% end %>
+      <div class="span5 offset2" style="padding-left:30px;">
+        <h2><%= @project_owner.username %>/<%= @project.name %></h2>
+        <p><%= @octo_repo['description'] || "No description found." %></p>
       </div>
-	</div>
-  </body>
-</html>
+    </div>
+    <div class=row">
+      <div class="span5 offset2 well">
+        <h2>Code info</h2>
+        <% tabs_count = detect_tabs_style(@project_owner.username, @project.name) %>
+        <table>
+          <% @octo_langs.each do |lang| %>
+            <tr>
+              <td><%= lang[0] %>:</td><td><%= lang[1] %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>Tabs Used: </td><td><%= tabs_count %></td>
+          </table>
+        </div>
+        <div class="span5 offset1 well">
+          <h2>Collaborators</h2>
+          <% Octokit.collaborators(@project_owner.username+"/"+@project.name).each do |user| %>
+            <p><%= link_to(user['login'], "https://github.com/"+user['login']) %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span5 offset1 well">
+          <h2>Pull request status</h2>
+          <table class="table">
+            <tr>
+              <td><b>Request #</b></td><td><b>Message</b></td><td><b>Compatibility Test</b></td>
+            </tr>
+            <% @processed_pulls.each do |pull| %>
+              <% pull[2] % tabs_count == 0 ? match_status = "Passed" : match_status="Failed" %>
+              <tr>
+                <td><%= pull[0] %></td><td><%= pull[1] %></td><td><%= match_status %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </body>
+  </html>
