@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_username(auth_hash["info"]["nickname"])
     if @user
       session[:user_id] = @user.id
-      redirect_to "/user/edit"
+      redirect_to "/user/show"
     else
       user = User.new :username => auth_hash["info"]["nickname"], :email => auth_hash["info"]["email"], :auth_token => auth_hash["credentials"]["token"]
       user.save
