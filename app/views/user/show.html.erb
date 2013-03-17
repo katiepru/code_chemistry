@@ -14,17 +14,17 @@
 	    </div>
 	  </div>
 	  	</div>
-	<div class="row">
+	<div class="row" style="padding-top:30px;">
       <div class="span5 offset2 well">
 	    <h2>User Information</h2>
-		<p>Indentation: <%= @user.indent == 0 ? 'Tabs' : @user.indent.to_s + ' Spaces' %> </p>
+		<p>Preferred Indentation: <%= @user.indent == 0 ? 'Tabs' : @user.indent.to_s + ' Spaces' %> </p>
 	  </div>
 	  <div class="span5 offset1 well">
 	    <h2>Project Information</h2>
-      <table id="user-languages">
+      <table class="table" id="user-languages">
       <% @langs_hash.each do |lang| %>
       <tr>
-        <td><%= lang[0] %></td><td><%= lang[1] %></td>
+        <td><%= lang[0] %></td><td><%= lang_ratio(@langs_hash, lang[0]) %></td>
       </tr>
       <% end %>
       </table>

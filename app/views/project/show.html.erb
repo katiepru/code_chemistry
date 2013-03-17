@@ -14,14 +14,14 @@
       <div class="span5 offset2 well">
         <h2>Code info</h2>
         <% tabs_count = detect_tabs_style(@project_owner.username, @project.name) %>
-        <table>
+        <table class="table">
           <% @octo_langs.each do |lang| %>
             <tr>
-              <td><%= lang[0] %>:</td><td><%= lang[1] %></td>
+              <td><%= lang[0] %>:</td><td><%= lang_ratio(@octo_langs, lang[0]) %></td>
             </tr>
           <% end %>
           <tr>
-            <td>Tabs Used: </td><td><%= tabs_count %></td>
+            <td>Spaces Used: </td><td><%= tabs_count %></td>
           </table>
         </div>
         <div class="span5 offset1 well">
