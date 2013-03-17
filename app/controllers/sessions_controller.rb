@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
 
   def create
     auth_hash = request.env['omniauth.auth']
-    @authorization = User.find_by_username(auth_hash["info"]["nickname"])
-    if @authorization
-#      render :text => "Welcome back #{@authorization.username}! You have already signed up."
+    @user = User.find_by_username(auth_hash["info"]["nickname"])
+    if @user
+#      render :text => "Welcome back #{@user.username}! You have already signed up."
 		redirect_to "/user/home"
     else
       user = User.new :username => auth_hash["info"]["nickname"], :email => auth_hash["info"]["email"], :auth_token => auth_hash["credentials"]["token"]
