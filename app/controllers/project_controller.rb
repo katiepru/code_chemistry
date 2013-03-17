@@ -1,7 +1,11 @@
 class ProjectController < ApplicationController
   def create
-    @project = Project.new :name => params[:name]
-	redirect_to 'project/show'
+    @project = Project.new :name => params[:name], :url => params[:url]
+    @project.save
+	redirect_to '/project/show/'+@project.name
+  end
+
+  def new
   end
   
   def list
@@ -9,7 +13,8 @@ class ProjectController < ApplicationController
   end
   
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find_by_name(params[:name])
+    redirect_to '/project/list' unless @project
   end
   
   def edit
@@ -20,7 +25,7 @@ class ProjectController < ApplicationController
     @project = Project.find(params[:id])
 	@project.update_attributes(params[:project])
 
-	redirect_to 'project/show'
+	redirect_to '/project/show'
   end
 
 end
