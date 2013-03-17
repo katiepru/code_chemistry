@@ -19,10 +19,11 @@ class UserController < ApplicationController
 
   def update
     @user = User.find_by_username(params[:username])
-	if @user.update_attributes(params[:user])
+
+    if @user.update_attributes(params[:user])
       redirect_to :action => 'show', :is => @user
-	else
-	  render :action => 'edit'
-	end
+    else
+      render :action => 'edit'
+    end
   end
 end
