@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   def test_pull_request diff_url
-    ret_number = 13
+    ret_number = 0
     diff_file = open(diff_url)
     diff_file.each_line do |line|
       curr_line = line
