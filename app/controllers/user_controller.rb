@@ -10,12 +10,12 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find(session[:user_id])
     redirect_to 'session/destroy' unless @user
   end
 
   def edit
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find(session[:user_id])
   end
 
   def update
