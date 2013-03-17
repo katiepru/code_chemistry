@@ -1,5 +1,5 @@
 CodeChemistry::Application.routes.draw do
-
+  resources :user
   get "user/home"
 
   get "user/profile"

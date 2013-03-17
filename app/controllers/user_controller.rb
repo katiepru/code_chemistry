@@ -10,20 +10,14 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by_id(session[:user_id])
+    redirect_to 'session/destroy' unless @user
   end
 
   def edit
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by_id(session[:user_id])
   end
 
   def update
-    @user = User.find_by_username(params[:username])
-
-    if @user.update_attributes(params[:user])
-      redirect_to :action => 'show', :is => @user
-    else
-      render :action => 'edit'
-    end
   end
 end
