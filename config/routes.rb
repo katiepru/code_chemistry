@@ -1,4 +1,12 @@
 CodeChemistry::Application.routes.draw do
+  get "project/update"
+
+  get "project/edit"
+
+  get "project/list"
+
+  get "project/show"
+
   match '/user/edit', :to => "user#edit"
 
   resources :user
