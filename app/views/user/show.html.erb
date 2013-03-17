@@ -4,8 +4,15 @@
     <title><%= yield(:title) %></title>
   </head>
   <body>
-    <h1>Your Profile here:</h1>
-
-
+	  <div class="row">
+		  <div class="span3 offset3">
+			  <p>Picture Here</p>
+		  </div>
+	  </div>
+	  <div class="row">
+		  <div class="span6 offset3">
+			  <p>Preferred Indents: <%= @user.indent == 0 ? 'Tabs' : @user.indent.to_s + ' Spaces' %></p>
+		  </div>
+	  </div>
   </body>
 </html>
