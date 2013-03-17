@@ -10,9 +10,8 @@ class SessionsController < ApplicationController
       redirect_to "/user/show"
     else
       user = User.new :username => auth_hash["info"]["nickname"], 
-	    :email => auth_hash["info"]["email"], 
-		:auth_token => auth_hash["credentials"]["token"], 
-		:gravatar => auth_hash['info']['image']
+	    :email => auth_hash["info"]["email"],
+        :auth_token => auth_hash["credentials"]["token"], 
       user.save
       session[:user_id] = user.id
       redirect_to "user/edit"
