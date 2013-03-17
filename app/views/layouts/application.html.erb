@@ -19,13 +19,11 @@
 				</button>
 				<a class="brand" href="#"><%= yield(:title) %></a>
 				<div class="nav-collapse collapse">
-					<!--
-					   -<ul class="nav">
-					   -    <li class="active"><a href="#">Home</a></li>
-					   -    <li><a href="#about">About</a></li>
-					   -    <li><a href="#contact">Contact</a></li>
-					   -</ul>
-					   -->
+					   <ul class="nav pull-right">
+					   	   <li> <%= link_to "New Project", "/project/new" %></li>
+					       <li> <%= link_to "Find Project", "project/list" %></li>
+					       <li> <%= link_to "Logout", "/logout" %></li>
+					   </ul>
 				</div><!--/.nav-collapse -->
 			</div>
 		</div>
