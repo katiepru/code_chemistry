@@ -1,11 +1,13 @@
 class ProjectController < ApplicationController
   def create
+    @user = User.find(session[:user_id])
     @project = Project.new :name => params[:name], :url => params[:url]
     @project.save
 	redirect_to '/project/show/'+@project.name
   end
 
   def new
+    @user = User.find(session[:user_id])
   end
   
   def list

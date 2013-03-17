@@ -5,10 +5,8 @@
       <div class="span 9 offset6">
         <div class="well">
           <%= form_tag("/project/create", :method => "get") do %>
-            <%= label_tag(:name, "Enter Name:") %>
-            <%= text_field_tag :name, params[:name] %>
-            <%= label_tag(:url, "Enter GitHub URL:") %>
-            <%= text_field_tag :url, params[:url] %>
+            <%= label_tag(:name, "Enter Github Repo:") %>
+			<%= @user.username %>/<%= text_field_tag :name, params[:name] %>
             <br/>
             <%= submit_tag("Submit", :class => 'btn') %>
           <% end %>
