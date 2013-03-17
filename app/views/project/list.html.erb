@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-	  <title><%= yield(:title) %></title>
+	<head>
+		<title><%= yield(:title) %></title>
 	</head>
 	<body>
-	<% @projects.each do |f| %>
-	  <div class=row">
-		  <div class="span5 offset4 well">
-        <a href="project/view/<%= f.name %>"><h2><%= f.name %></h2></a>
+		<% @projects.each do |f| %>
+			<div class=row">
+				<div class="span5 offset4 well">
+					<a href="/project/show/<%= f.name %>"><h2><%= f.name %></h2></a>
+				</div>
 			</div>
-		</div>
-	<% end %>
+		<% end %>
 	</body>
 </html>
