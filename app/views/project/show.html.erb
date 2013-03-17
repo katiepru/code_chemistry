@@ -5,17 +5,23 @@
   </head>
   <body>
     <div class="row">
-	  <div class="span5 offset3">
-	    <h2><%= @project.name %></h2>
-		<p><%= @project.url %></p>
-		<p>Description</p>
+	  <div class="span5 offset2" style="padding-left:30px;">
+      <h2><%= @project_owner.username %>/<%= @project.name %></h2>
+      <p><%= @octo_repo['description'] || "No description found." %></p>
 	  </div>
 	</div>
 	<div class=row">
-	  <div class="span5 offset2 colorful">
-	    <h2>Project Code info</h2>
-      </div>
-	  <div class="span5 offset1 colorful">
+	  <div class="span5 offset2 well">
+	    <h2>Code info</h2>
+      <table>
+        <% @octo_langs.each do |lang| %>
+          <tr>
+            <td><%= lang[0] %>:</td><td><%= lang[1] %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+	  <div class="span5 offset1 well">
 	    <h2>Users</h2>
 		<p>And other relevant info</p>
       </div>
