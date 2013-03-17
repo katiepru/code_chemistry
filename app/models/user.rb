@@ -4,5 +4,6 @@ class User < ActiveRecord::Base
 
   # Coding style attributes
   attr_accessible :indent
+
   validates :username, :email, :presence => true
 end
