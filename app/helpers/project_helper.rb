@@ -1,12 +1,12 @@
+require 'open-uri'
 module ProjectHelper
   def detect_tabs_style(owner, repo)
-    tabs_used = owner+"/"+repo
+    tabs_used = -1
     Octokit.tree(owner+"/"+repo,"HEAD")['tree'].each do |hash|
-      if hash and hash['file']
-        tabs_used = "1"
-        unless hash['file'].downcase == "readme" || hash['file'].downcase == "readme.md"
-          parse_file = open("https://raw.github.com/"+owner+"/"+repo+"/master/"+hash['file'])
-          check_next=false
+      if hash and hash['path']
+        unless hash['path'].downcase == "readme" || hash['path'].downcase == "readme.md"
+          parse_file = open("https://raw.github.com/"+owner+"/"+repo+"/master/"+hash['path'])
+		  prev_line = nil
           parse_file.each_line do |line|
             curr_line = line
             if not prev_line
@@ -19,7 +19,7 @@ module ProjectHelper
           end
         end
       end
+      return tabs_used
     end
-    return tabs_used
   end
 end

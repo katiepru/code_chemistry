@@ -20,8 +20,7 @@
           </tr>
         <% end %>
         <tr>
-          <% tabs_used = detect_tabs_style(@project_owner.username, @project.name) %>
-          <td>Tabs Used: </td><td><%= tabs_used %></td>
+          <td>Tabs Used: </td><td><%= detect_tabs_style(@project_owner.username, @project.name) %></td>
       </table>
     </div>
 	  <div class="span5 offset1 well">
