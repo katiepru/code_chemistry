@@ -4,12 +4,16 @@ class SessionsController < ApplicationController
 
   def create
     auth_hash = request.env['omniauth.auth']
+	User.delete_all
     @user = User.find_by_username(auth_hash["info"]["nickname"])
     if @user
       session[:user_id] = @user.id
       redirect_to "/user/show"
     else
-      user = User.new :username => auth_hash["info"]["nickname"], :email => auth_hash["info"]["email"], :auth_token => auth_hash["credentials"]["token"]
+      user = User.new :username => auth_hash["info"]["nickname"], 
+	    :email => auth_hash["info"]["email"], 
+		:auth_token => auth_hash["credentials"]["token"], 
+		:gravatar => auth_hash['info']['image']
       user.save
       session[:user_id] = user.id
       redirect_to "user/edit"
