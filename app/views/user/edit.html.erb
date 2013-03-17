@@ -6,9 +6,16 @@
   <body>
     <h1>Edit Your Profile here:</h1>
 
-    <%= form_tag :action => 'update' :method => 'post' %>
-      Something: <%= text_field 'item', 'something' %>
-    <%= end_form_tag %>
+    <%= form_for @user do |f| %>
+		<% indent_arr = [['Tabs', 0]] %>
+		<% 1.upto(10) do |i| indent_arr.push([pluralize(i, 'Space'), i]) end %>
+
+		Preferred Indent: <%= f.select :indent, indent_arr %>
+
+		<br/>
+
+	  <%= f.submit 'Ok' %>
+    <% end %>
 
   </body>
 </html>
