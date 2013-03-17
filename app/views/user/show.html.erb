@@ -5,23 +5,23 @@
   </head>
   <body>
 	  <div class="row">
-		  <div class="span3 offset3">
-			  <img src="<%= Octokit.user(@user.username)['avatar_url'] %>"/>
+		  <div class="span2 offset2">
+			  <img src="<%= Octokit.user(@user.username)['avatar_url'] %>" style="height:150px"/>
 		  </div>
+		  <div class="span5">
+	      <h2><%= @user.username %></h2>
+		    <p><%= @user.email %></p>
+	    </div>
 	  </div>
-	  <div class="span7 offset 5">
-	    <h2><%= @user.username %></h2>
-		<p><%= @user.email %></p>
-	  </div>
-	</div>
+	  	</div>
 	<div class="row">
       <div class="span5 offset2">
 	    <h2>User Information</h2>
-		<p>This is a paragraph that is kind of neat</p>
+		<p>Indentation: <%= @user.indent == 0 ? 'Tabs' : @user.indent.to_s + ' Spaces' %> </p>
 	  </div>
 	  <div class="span5 offset1">
 	    <h2>Project Information</h2>
-		<p>This is another paragraph</p>
+		<p>This is a paragraph that is kind of neat</p>
 	  </div>
 	</div>
   </body>
