@@ -21,7 +21,13 @@
 	  </div>
 	  <div class="span5 offset1 colorful">
 	    <h2>Project Information</h2>
-		<p>This is a paragraph that is kind of neat</p>
+      <table id="user-languages">
+      <% @langs_hash.each do |lang| %>
+      <tr>
+        <td><%= lang[0] %></td><td><%= lang[1] %></td>
+      </tr>
+      <% end %>
+      </table>
 	  </div>
 	</div>
   </body>
