@@ -24,8 +24,10 @@
       </table>
     </div>
 	  <div class="span5 offset1 well">
-	    <h2>Users</h2>
-		<p>And other relevant info</p>
+	    <h2>Collaborators</h2>
+		<% Octokit.collaborators(@project_owner.username+"/"+@project.name).each do |user| %>
+		  <p><%= link_to(user['login'], "https://github.com/"+user['login']) %></p>
+		<% end %>
       </div>
 	</div>
   </body>
