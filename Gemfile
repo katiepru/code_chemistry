@@ -26,6 +26,9 @@ gem 'jquery-rails'
 # Omniauth for Github login
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
 
+# Github API
+gem 'octokit', '~> 1.23.0'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

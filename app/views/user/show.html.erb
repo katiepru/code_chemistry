@@ -4,9 +4,10 @@
     <title><%= yield(:title) %></title>
   </head>
   <body>
-    <div class="row">
-	  <div class="span2 offset2">
-	    <img height=100 src="https://i2.wp.com/a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-user-420.png?ssl=1" />
+	  <div class="row">
+		  <div class="span3 offset3">
+			  <img src="<%= Octokit.user(@user.username)['avatar_url'] %>"/>
+		  </div>
 	  </div>
 	  <div class="span7 offset 5">
 	    <h2><%= @user.username %></h2>
