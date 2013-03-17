@@ -1,2 +1,23 @@
-<h1>Project#show</h1>
-<p>Find me in app/views/project/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+  </head>
+  <body>
+    <div class="row">
+	  <div class="span5 offset3">
+	    <h2>Project Name</h2>
+		<p>Project description</p>
+	  </div>
+	</div>
+	<div class=row">
+	  <div class="span5 offset2 colorful">
+	    <h2>Project Code info</h2>
+      </div>
+	  <div class="span5 offset1 colorful">
+	    <h2>Users</h2>
+		<p>And other relevant info</p>
+      </div>
+	</div>
+  </body>
+</html>
