@@ -4,15 +4,24 @@
     <title><%= yield(:title) %></title>
   </head>
   <body>
-	  <div class="row">
-		  <div class="span3 offset3">
-			  <p>Picture Here</p>
-		  </div>
+    <div class="row">
+	  <div class="span2 offset2">
+	    <img height=100 src="https://i2.wp.com/a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-user-420.png?ssl=1" />
 	  </div>
-	  <div class="row">
-		  <div class="span6 offset3">
-			  <p>Preferred Indents: <%= @user.indent == 0 ? 'Tabs' : @user.indent.to_s + ' Spaces' %></p>
-		  </div>
+	  <div class="span7 offset 5">
+	    <h2><%= @user.username %></h2>
+		<p><%= @user.email %></p>
 	  </div>
+	</div>
+	<div class="row">
+      <div class="span5 offset2">
+	    <h2>User Information</h2>
+		<p>This is a paragraph that is kind of neat</p>
+	  </div>
+	  <div class="span5 offset1">
+	    <h2>Project Information</h2>
+		<p>This is another paragraph</p>
+	  </div>
+	</div>
   </body>
 </html>
